@@ -1,0 +1,58 @@
+-
+  pageId: 1
+  type: 'simple'
+  bgcolor: "#efefef"
+  image: ""
+  imageAlt: ""
+  bgimg: ""
+  bgimgAlt: ""
+  textColor: 'black'
+  content: |
+    <h1>Simple Section Block</h1>
+    <p>This is simple content with inline text and images.</p>
+    <h2>Inline Images</h2>
+    <p>
+      This is simple workaround for inline images in content field.
+      Instead of using something like <a class="underline" href="https://www.gatsbyjs.com/plugins/gatsby-plugin-remote-images/">gatsby-plugin-remote-images</a>
+      or <a class="underline" href="https://www.gatsbyjs.com/plugins/gatsby-remark-images/">gatsby-remark-images</a> or any similar plugin
+      we create a second YML node <strong>inlineImages</strong> and in content we just add a standard GatsbyImage Plugin tag
+      like 
+      <Highlight lang="jsx" codeString="&lt;GatsbyImage image=&#123;image0&#125; alt='Image 1' \/&gt;" />
+      amd for another image
+      <Highlight lang="jsx" codeString="&lt;GatsbyImage image=&#123;image1&#125; alt='Image 2' \/&gt;" />
+      and so on... Check <strong>/src/data/secsions.yml</strong> file to see how it was created in YAML
+    </p>
+    <div class="relative mb-8">
+      <GatsbyImage image={image0} alt="Image 1" />
+      <GatsbyImage image={image1} alt="Image 2" />
+    </div>
+    <h2>Gatsby internal links</h2>
+    <p>You can also use a Link component</p>
+    <Link to="/second-page" class="underline">Link to second page</Link>
+  inlineImages: 
+    -
+      image: image01.jpg
+    -
+      image: https://unsplash.com/photos/Bd7gNnWJBkU/download?ixid=MnwxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNjQ1MTMyMDEz&force=true&w=1920
+-
+  pageId: 1
+  type: twocols
+  bgcolor: '#fefefe'
+  content: |
+    <h2>This is two columns section block</h2>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo harum quidem dicta officia ea neque ex dolorum tempora expedita facilis veritatis eum ipsum voluptas, laborum totam earum deserunt? Molestiae esse nemo recusandae aut dolores, quibusdam neque officiis hic eaque cumque consequatur minus officia in animi est labore enim natus qui!</p>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo harum quidem dicta officia ea neque ex dolorum tempora expedita facilis veritatis eum ipsum voluptas, laborum totam earum deserunt? Molestiae esse nemo recusandae aut dolores, quibusdam neque officiis hic eaque cumque consequatur minus officia in animi est labore enim natus qui!</p>
+  image: https://unsplash.com/photos/WiONHd_zYI4/download?ixid=MnwxMjA3fDB8MXxzZWFyY2h8Nnx8Y29tcHV0ZXJ8ZW58MHx8fHwxNjQ1MDc2NjE2&force=true&w=1920
+  imageAlt: 'Two Columns'
+  imagePosition: 'right'
+-
+  pageId: 1
+  type: twocols
+  bgcolor: '#ccc'
+  content: |
+    <h2>This is two columns section block</h2>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo harum quidem dicta officia ea neque ex dolorum tempora expedita facilis veritatis eum ipsum voluptas, laborum totam earum deserunt? Molestiae esse nemo recusandae aut dolores, quibusdam neque officiis hic eaque cumque consequatur minus officia in animi est labore enim natus qui!</p>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo harum quidem dicta officia ea neque ex dolorum tempora expedita facilis veritatis eum ipsum voluptas, laborum totam earum deserunt? Molestiae esse nemo recusandae aut dolores, quibusdam neque officiis hic eaque cumque consequatur minus officia in animi est labore enim natus qui!</p>
+  image: https://unsplash.com/photos/bsy0-z5RTfk/download?ixid=MnwxMjA3fDF8MXxzZWFyY2h8OHx8Y29tcHV0ZXJ8ZW58MHx8fHwxNjQ1MDc2NjE2&force=true&w=1920
+  imageAlt: 'Two Columns'
+  imagePosition: 'left'

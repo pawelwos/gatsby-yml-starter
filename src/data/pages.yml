@@ -1,0 +1,30 @@
+-
+  databaseId: 1
+  type: page
+  title: Home
+  url: /
+-
+  databaseId: 2
+  type: page
+  title: Second page
+  url: /second-page
+-
+  databaseId: 3
+  type: page
+  title: Another page
+  url: /another-page
+-
+  databaseId: 4
+  type: post
+  title: First Post
+  date: '2022-02-16'
+  url: /news/first-post
+  slug: first-post
+  thumbnail: https://unsplash.com/photos/WiONHd_zYI4/download?ixid=MnwxMjA3fDB8MXxzZWFyY2h8Nnx8Y29tcHV0ZXJ8ZW58MHx8fHwxNjQ1MDc2NjE2&force=true&w=1920
+-
+  databaseId: 5
+  type: post
+  title: Second Post
+  date: '2022-02-17'
+  url: /news/second-post
+  thumbnail: https://unsplash.com/photos/WiONHd_zYI4/download?ixid=MnwxMjA3fDB8MXxzZWFyY2h8Nnx8Y29tcHV0ZXJ8ZW58MHx8fHwxNjQ1MDc2NjE2&force=true&w=1920
