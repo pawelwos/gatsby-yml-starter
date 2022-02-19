@@ -11,7 +11,7 @@ const Header = ({section}) => {
     <section className='relative bg-purple-800 white px-8 py-24 mb-6'>
       { bgimg && (
         <>
-        <GatsbyImage className="absolute z-0 inset-0 w-full h-full" image={getImage(bgimg)} alt={section.title} />
+        <GatsbyImage style={{"position": 'absolute', 'zIndex': 1}} className="absolute z-0 inset-0 w-full h-full" image={getImage(bgimg)} alt={section.title} />
         <div className={`absolute inset-0 z-10 bg-black bg-opacity-75`}></div>
         </>
       )}
