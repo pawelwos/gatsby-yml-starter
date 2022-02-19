@@ -84,7 +84,7 @@ exports.createResolvers = ({
           type: 'File',
           async resolve(source, args, context, info) {
             // if source file is a remote file we donwolad it
-            if(source[field].includes("http")) {
+            if(source[field] && source[field].includes("http")) {
               return await createRemoteFileNode({
                 url: source[field],
                 store,
