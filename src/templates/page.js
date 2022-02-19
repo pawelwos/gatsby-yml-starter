@@ -39,10 +39,21 @@ const Page = ({data}) => (
 export const query = graphql`
 fragment section on SectionsYaml {
   type
+  intro
   content
   bgcolor
   textColor
   imagePosition
+  features {
+    title
+    intro
+    link
+    imageLocal {
+      childImageSharp {
+        gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
+      }
+    }
+  }
   bgimgLocal {
     childImageSharp {
       gatsbyImageData(layout: FULL_WIDTH)
@@ -68,7 +79,6 @@ query PageQuery($databaseId: Int!) {
     databaseId
     title
     date
-    thumbnail
     url
     sections {
       ...section

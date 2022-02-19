@@ -1,6 +1,24 @@
 -
   pageId: 1
   type: 'simple'
+  bgcolor: "#fff"
+  image: ""
+  imageAlt: ""
+  bgimg: ""
+  bgimgAlt: ""
+  textColor: 'black'
+  content: |
+    <h2>Introduction</h2>
+    <p>Hello fellow Gatsby users!</p>
+    <p>I would like to show you my approach and setup of gatsby site. I'm not a javascript expert and that's the reason this setup was created as I had to do a couple of workarounds (aspacialy in inline content with images and links). I'm using YAML for the site structure and sections definitions. Why not Markdown or MDX? I know you can write HTML in markdown files but if you prefer HTML over markdown (like I do) why do we need markdown anyway? :) Secondly, I'm using this approach with a wordpress site which is generating these YAML files. This way I can quickly draft / outline a fully working site quickly just by writing YAML files and then just connect it to wordpress with custom API endpoints with ACF repeater fields. </p>
+-
+  pageId: 1
+  type: blog-list
+  intro: |
+    <h1>Blog</h1>
+-
+  pageId: 4
+  type: 'simple'
   bgcolor: "#efefef"
   image: ""
   imageAlt: ""
@@ -13,8 +31,8 @@
     <h2>Inline Images</h2>
     <p>
       This is simple workaround for inline images in content field.
-      Instead of using something like <a class="underline" href="https://www.gatsbyjs.com/plugins/gatsby-plugin-remote-images/">gatsby-plugin-remote-images</a>
-      or <a class="underline" href="https://www.gatsbyjs.com/plugins/gatsby-remark-images/">gatsby-remark-images</a> or any similar plugin
+      Instead of using something like <a href="https://www.gatsbyjs.com/plugins/gatsby-plugin-remote-images/">gatsby-plugin-remote-images</a>
+      or <a href="https://www.gatsbyjs.com/plugins/gatsby-remark-images/">gatsby-remark-images</a> or any similar plugin
       we create a second YML node <strong>inlineImages</strong> and in content we just add a standard GatsbyImage Plugin tag
       like 
       <Highlight lang="jsx" codeString="&lt;GatsbyImage image=&#123;image0&#125; alt='Image 1' \/&gt;" />
@@ -23,19 +41,19 @@
       and so on... Check <strong>/src/data/secsions.yml</strong> file to see how it was created in YAML
     </p>
     <div class="relative mb-8">
-      <GatsbyImage image={image0} alt="Image 1" />
-      <GatsbyImage image={image1} alt="Image 2" />
+      <p><GatsbyImage image={image0} alt="Image 1" /></p>
+      <p><GatsbyImage image={image1} alt="Image 2" /></p>
     </div>
     <h2>Gatsby internal links</h2>
     <p>You can also use a Link component</p>
-    <Link to="/second-page" class="underline">Link to second page</Link>
+    <Link to="/">Back to the Blog</Link>
   inlineImages: 
     -
       image: image01.jpg
     -
       image: https://unsplash.com/photos/Bd7gNnWJBkU/download?ixid=MnwxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNjQ1MTMyMDEz&force=true&w=1920
 -
-  pageId: 1
+  pageId: 5
   type: twocols
   bgcolor: '#fefefe'
   content: |
@@ -46,7 +64,31 @@
   imageAlt: 'Two Columns'
   imagePosition: 'right'
 -
-  pageId: 1
+  pageId: 5
+  type: 'features'
+  features:
+    -
+      title: Feature 1
+      image: https://unsplash.com/photos/WkfDrhxDMC8/download?ixid=MnwxMjA3fDB8MXxzZWFyY2h8MTR8fGNvbXB1dGVyfGVufDB8fHx8MTY0NTI0MDY2NA&force=true&w=1920
+      intro: Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo harum quidem dicta officia ea neque ex dolorum tempora expedita facilis veritatis eum ipsum voluptas.
+      link: 'https://www.pawelwos.com'
+    -
+      title: Feature 2
+      image: https://unsplash.com/photos/bJjsKbToY34/download?ixid=MnwxMjA3fDB8MXxzZWFyY2h8MTh8fGNvbXB1dGVyfGVufDB8fHx8MTY0NTI0MDY2NA&force=true&w=1920
+      intro: Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo harum quidem dicta officia ea neque ex dolorum tempora expedita facilis veritatis eum ipsum voluptas.
+      link: 'https://www.pawelwos.com'
+    -
+      title: Feature 3
+      image: https://unsplash.com/photos/Pmh0UoG1vlE/download?ixid=MnwxMjA3fDB8MXxzZWFyY2h8MTd8fGNvbXB1dGVyfGVufDB8fHx8MTY0NTI0MDY2NA&force=true&w=1920
+      intro: Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo harum quidem dicta officia ea neque ex dolorum tempora expedita facilis veritatis eum ipsum voluptas.
+      link: 'https://www.pawelwos.com'
+    -
+      title: Feature 4
+      image: https://unsplash.com/photos/gySMaocSdqs/download?ixid=MnwxMjA3fDB8MXxzZWFyY2h8MjB8fGNvbXB1dGVyfGVufDB8fHx8MTY0NTI0MDY2NA&force=true&w=1920
+      intro: Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo harum quidem dicta officia ea neque ex dolorum tempora expedita facilis veritatis eum ipsum voluptas.
+      link: 'https://www.pawelwos.com'
+-
+  pageId: 5
   type: twocols
   bgcolor: '#ccc'
   content: |
@@ -56,3 +98,22 @@
   image: https://unsplash.com/photos/bsy0-z5RTfk/download?ixid=MnwxMjA3fDF8MXxzZWFyY2h8OHx8Y29tcHV0ZXJ8ZW58MHx8fHwxNjQ1MDc2NjE2&force=true&w=1920
   imageAlt: 'Two Columns'
   imagePosition: 'left'
+-
+  pageId: 5
+  type: blog-list
+  intro: |
+    <h2>A blog list within a post</h2>
+-
+  pageId: 5
+  type: 'simple'
+  bgcolor: "#efefef"
+  image: ""
+  imageAlt: ""
+  bgimg: ""
+  bgimgAlt: ""
+  textColor: 'black'
+  content: |
+    <div class="text-center">
+    <h2>A simple section with back to blog button</h2>
+    <p><Link to="/" class="underline">Back to the Blog</Link></p>
+    </div>

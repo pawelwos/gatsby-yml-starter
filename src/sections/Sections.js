@@ -1,14 +1,14 @@
 import loadable from '@loadable/component'
 const Simple = loadable(() => import('./Simple'))
 const TwoCols = loadable(() => import('./TwoCols'))
-const LatestNews = loadable(() => import('./LatestNews'))
+const BlogList = loadable(() => import('./BlogList'))
 const Features = loadable(() => import('./Features'))
 
 
 const Sections = {
 	'simple' : Simple,
 	'twocols': TwoCols,
-	'latest-news': LatestNews,
+	'blog-list': BlogList,
 	'features': Features
 }
 

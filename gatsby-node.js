@@ -1,6 +1,7 @@
 const path = require("path")
 const { createRemoteFileNode } = require(`gatsby-source-filesystem`)
 
+// we create all page types here
 exports.createPages = async ({ actions, graphql, reporter }) => {
   const { createPage } = actions
   const pageTemplate = path.resolve("src/templates/page.js")
@@ -35,6 +36,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
 
 exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions
+  // we link Pages with sections here
   const typeDefs = `
     type PagesYaml implements Node {
       sections: [SectionsYaml] @link(by: "pageId", from: "databaseId")
@@ -54,12 +56,19 @@ exports.createResolvers = ({
   reporter,
 }) => {
   const { createNode } = actions
+  // this is a special array of fields containing images and resolvers will be created from these fields
   const resolvers = [
     {
       'SectionsYaml': ['bgimg', 'image']
     },
     {
       'SectionsYamlInlineImages': ['image']
+    },
+    {
+      'SectionsYamlFeatures': ['image']
+    },
+    {
+      "PagesYaml": ['thumbnail']
     },
   ]
   
@@ -69,12 +78,12 @@ exports.createResolvers = ({
   
   resolvers.map(file => {
       const fields = Object.values(file)
-      // reset fieldsObject
       fieldsObject = {}
       fields[0].map(field => {
         fieldsObject[field+"Local"] = {
           type: 'File',
           async resolve(source, args, context, info) {
+            // if source file is a remote file we donwolad it
             if(source[field].includes("http")) {
               return await createRemoteFileNode({
                 url: source[field],
@@ -85,6 +94,7 @@ exports.createResolvers = ({
                 reporter,
               })
             } else if(source[field]) {
+              // if source file is local file we just link it from /src/images
               return context.nodeModel.findOne({
                 type: "File",
                 query: {

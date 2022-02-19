@@ -13,13 +13,13 @@ export default function Simple ({section}) {
   let inlineImages = {}
   if(section.inlineImages)
   section.inlineImages.map((image, index) => {
-    inlineImages['image'+index] = getImage(image.imageLocal)
+    return inlineImages['image'+index] = getImage(image.imageLocal)
   })
 
   const bgimg = section.bgimgLocal
 
   return (
-    <section className={`simple p-4 relative ${ bgimg ? 'pt-96' : ''}`} style={{backgroundColor: section.bgcolor}}>
+    <section className={`simple p-4 relative mb-4 ${ bgimg ? 'pt-96' : ''}`} style={{backgroundColor: section.bgcolor}}>
       { bgimg && (
         <>
         <GatsbyImage style={{"position": 'absolute', 'zIndex': 1}} className="inset-0" image={getImage(bgimg)} alt={section.bgimgAlt} />
@@ -27,7 +27,7 @@ export default function Simple ({section}) {
         </>
       )}
       <div className="container mx-auto relative z-20">
-        <div className={`inner py-8 lg:w-2/3 mx-auto ${section.textColor}`}>
+        <div className={`inner py8 mx-auto ${section.textColor}`}>
             <JsxParser
               bindings={inlineImages}
               components={{Link, GatsbyImage, Highlight}}

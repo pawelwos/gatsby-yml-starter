@@ -2,8 +2,8 @@ module.exports = {
   siteMetadata: {
     title: `Gatsby Default Starter driven by YAML files`,
     description: `Page builder based on YAML files`,
-    author: `@gatsbyjs`,
-    siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
+    author: `@pawelwos`,
+    siteUrl: `https://www.pawelwos.com/`,
   },
   plugins: [
     'gatsby-plugin-postcss',
