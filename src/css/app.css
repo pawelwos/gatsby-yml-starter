@@ -6,6 +6,10 @@
   a {
     @apply text-purple-800 underline
   }
+  .white h1,
+  .white h2,
+  .white h3,
+  .white p,
   .white a {
     @apply text-white
   }

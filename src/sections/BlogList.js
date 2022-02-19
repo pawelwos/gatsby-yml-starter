@@ -32,7 +32,7 @@ const BlogList = ({section}) => {
           thumbnail = getImage(post.thumbnailLocal)
           return (    
             <div key={post.databaseId}>
-              { thumbnail && <p><Link to={post.url}><GatsbyImage width={400} image={thumbnail} alt={post.title} /></Link></p> }
+              { thumbnail && <div className="mb-4"><Link to={post.url}><GatsbyImage width={400} image={thumbnail} alt={post.title} /></Link></div> }
               <h2 className='mb-2'><Link to={post.url}>{post.title}</Link></h2>
               <h3 className='text-gray-400 text-xs'>{post.date}</h3>
               <p dangerouslySetInnerHTML={{__html: post.excerpt}}></p>

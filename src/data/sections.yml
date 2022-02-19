@@ -9,13 +9,56 @@
   textColor: 'black'
   content: |
     <h2>Introduction</h2>
-    <p>Hello fellow Gatsby users!</p>
-    <p>I would like to show you my approach and setup of gatsby site. I'm not a javascript expert and that's the reason this setup was created as I had to do a couple of workarounds (aspacialy in inline content with images and links). I'm using YAML for the site structure and sections definitions. Why not Markdown or MDX? I know you can write HTML in markdown files but if you prefer HTML over markdown (like I do) why do we need markdown anyway? :) Secondly, I'm using this approach with a wordpress site which is generating these YAML files. This way I can quickly draft / outline a fully working site quickly just by writing YAML files and then just connect it to wordpress with custom API endpoints with ACF repeater fields. This is not a perfect setup, I know. I bet there are plenty of places where it can be improved. I just want to show you a concept / idea you might find interesting. Any feedback / reviews are highly appreciated.</p>
+    <p>Hello Gatsby users! I would like to show you my approach and setup of the gatsby site using just two yaml files for pages and dynamic sections / blocks assigned to these pages. <strong>I'm not a javascript expert</strong> and I would love to get feedback from you guys, if this approach is worth investing time and if this is efficient. It is not perfect, it needs special treatment ;) and I'm sure there are plenty of bugs and bad practice. I will put more technical instructions on how to use it on Github (link down below)</p><p>I know you can use markdown and MDX which is great but I needed something that can be easily connected to a CMS (most of my clients are using Wordpress). Using wordpress source plugin is great but I needed a way to quickly outline a website  showing all the sections needed and page structure and then just switch to dynamic YAML files driven by Wordpress custom API endpoint. It really reduced my development time and you might find this interesting....</p><p>I really enjoy and love working with GatsbyJs so I want to give something back to the community, I hope it is worth sharing at all :D</p><p>All images are taken from unsplash.com</p><p>Source code is available here: <br />Github: <a href="https://github.com/pawelwos/gatsby-yml-starter">https://github.com/pawelwos/gatsby-yml-starter</a><br />Contact: <a href="mailto:pawelwos@gmail.com">pawelwos@gmail.com</a></p>
 -
   pageId: 1
   type: blog-list
   intro: |
     <h1>Blog</h1>
+-
+  pageId: 2
+  type: header
+  title: "Second Page"
+  bgimg: https://unsplash.com/photos/XJXWbfSo2f0/download?ixid=MnwxMjA3fDB8MXxzZWFyY2h8MzV8fGNvbXB1dGVyfGVufDB8fHx8MTY0NTI5MzQyMQ&force=true&w=1920
+-
+  pageId: 2
+  type: 'simple'
+  bgcolor: ""
+  image: ""
+  imageAlt: ""
+  bgimg: ""
+  bgimgAlt: ""
+  textColor: 'black'
+  content: |
+    <h1>Example page content</h1>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam accusamus dolore saepe, dolores atque doloremque alias exercitationem reprehenderit quis tenetur laborum adipisci voluptatibus voluptatem nostrum? Ipsum eveniet eum architecto neque alias illum commodi velit minus itaque sint quae necessitatibus facilis, dolore facere cupiditate, voluptates quibusdam dolor perspiciatis, in dignissimos numquam?</p>
+    <div class="mb-4"><GatsbyImage image={image0} alt="Image 1" /></div>
+    <p><Link to="/">&lt; Back to Homepage</Link></p>
+  inlineImages: 
+    -
+      image: image01.jpg
+-
+  pageId: 3
+  type: header
+  title: "Another Page"
+  bgimg: https://unsplash.com/photos/n8Qb1ZAkK88/download?ixid=MnwxMjA3fDB8MXxzZWFyY2h8MzN8fGNvbXB1dGVyfGVufDB8fHx8MTY0NTI5MzQyMQ&force=true&w=1920
+-
+  pageId: 3
+  type: 'simple'
+  bgcolor: ""
+  image: ""
+  imageAlt: ""
+  bgimg: ""
+  bgimgAlt: ""
+  textColor: 'black'
+  content: |
+    <h1>Example page content</h1>
+    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam accusamus dolore saepe, dolores atque doloremque alias exercitationem reprehenderit quis tenetur laborum adipisci voluptatibus voluptatem nostrum? Ipsum eveniet eum architecto neque alias illum commodi velit minus itaque sint quae necessitatibus facilis, dolore facere cupiditate, voluptates quibusdam dolor perspiciatis, in dignissimos numquam?</p>
+    <div class="mb-4"><GatsbyImage image={image0} alt="Image 1" /></div>
+    <p><Link to="/">&lt; Back to Homepage</Link></p>
+  inlineImages: 
+    -
+      image: https://unsplash.com/photos/Bd7gNnWJBkU/download?ixid=MnwxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNjQ1MTMyMDEz&force=true&w=1920
 -
   pageId: 4
   type: 'simple'
@@ -35,23 +78,34 @@
       or <a href="https://www.gatsbyjs.com/plugins/gatsby-remark-images/">gatsby-remark-images</a> or any similar plugin
       we create a second YML node <strong>inlineImages</strong> and in content we just add a standard GatsbyImage Plugin tag
       like 
+    </p>
       <Highlight lang="jsx" codeString="&lt;GatsbyImage image=&#123;image0&#125; alt='Image 1' \/&gt;" />
+    <p>
       amd for another image
+    </p>  
       <Highlight lang="jsx" codeString="&lt;GatsbyImage image=&#123;image1&#125; alt='Image 2' \/&gt;" />
-      and so on... Check <strong>/src/data/secsions.yml</strong> file to see how it was created in YAML
+    <p>
+      and so on... so you can use a loop... I use it with wordpress and custom API and I just replace each &lt;img /&gt; tag with &lt;GatsbyImage /&gt; adding "image".$i in the image attribute. So yes, instead of gatsby doing the replacement my Wordpress backend does it for me.  
     </p>
     <div class="relative mb-8">
-      <p><GatsbyImage image={image0} alt="Image 1" /></p>
-      <p><GatsbyImage image={image1} alt="Image 2" /></p>
+      <div class="mb-4"><GatsbyImage image={image0} alt="Image 1" /></div>
+      <div class="mb-4"><GatsbyImage image={image1} alt="Image 2" /></div>
     </div>
     <h2>Gatsby internal links</h2>
-    <p>You can also use a Link component</p>
+    <p>So as expected &lt;Link&gt; component works out of the box and in Wordpress API it replace all &lt;a href=""&gt; to gatsby link, so again instead of gatsby doing the work, it's done in the Wordpress CMS</p>
     <Link to="/">Back to the Blog</Link>
   inlineImages: 
     -
       image: image01.jpg
     -
       image: https://unsplash.com/photos/Bd7gNnWJBkU/download?ixid=MnwxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNjQ1MTMyMDEz&force=true&w=1920
+
+-
+  pageId: 5
+  type: header
+  title: "Dynamic sections / blocks"
+  bgimg: https://unsplash.com/photos/p0j-mE6mGo4/download?ixid=MnwxMjA3fDB8MXxzZWFyY2h8MzF8fGNvbXB1dGVyfGVufDB8fHx8MTY0NTI5MzQyMQ&force=true&w=1920
+
 -
   pageId: 5
   type: twocols
@@ -90,7 +144,8 @@
 -
   pageId: 5
   type: twocols
-  bgcolor: '#ccc'
+  bgcolor: '#6b21a8'
+  textColor: white
   content: |
     <h2>This is two columns section block</h2>
     <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo harum quidem dicta officia ea neque ex dolorum tempora expedita facilis veritatis eum ipsum voluptas, laborum totam earum deserunt? Molestiae esse nemo recusandae aut dolores, quibusdam neque officiis hic eaque cumque consequatur minus officia in animi est labore enim natus qui!</p>
@@ -103,6 +158,27 @@
   type: blog-list
   intro: |
     <h2>A blog list within a post</h2>
+-
+  pageId: 5
+  type: 'simple'
+  bgcolor: ""
+  image: ""
+  imageAlt: ""
+  bgimg: ""
+  bgimgAlt: ""
+  content: |
+    <div class="text-center">
+    <h2>As many sections as you like...</h2>
+    <p>At the moment we have 5 sections defined in <strong>/src/sections/Sections.js</strong></p>
+    <ul class="list-disc list-inside">
+    <li>Header</li>
+    <li>Simple</li>
+    <li>Two Columns</li>
+    <li>Blog List</li>
+    <li>Features</li>
+    </ul>
+    <p>But it is really easy to define more with its own functionality, react hooks, forms and so on...</p>
+    </div>
 -
   pageId: 5
   type: 'simple'

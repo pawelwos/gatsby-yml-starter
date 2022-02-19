@@ -39,6 +39,7 @@ const Page = ({data}) => (
 export const query = graphql`
 fragment section on SectionsYaml {
   type
+  title
   intro
   content
   bgcolor

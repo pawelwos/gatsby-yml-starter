@@ -27,6 +27,10 @@ const Header = ({ siteTitle }) => (
           {siteTitle}
         </Link>
       </h1>
+      <div className="md:flex justify-center white space-x-4 text-xl">
+        <Link className="no-underline p-4" to={'/second-page'}>Second Page</Link>
+        <Link className="no-underline p-4" to={'/another-page'}>Another page</Link>
+      </div>
     </div>
   </header>
 )
