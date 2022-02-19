@@ -7,8 +7,9 @@ const Features = ({section}) => {
 	return (
 		<div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4'>
 			{ section.features.map((feature, index) => {
-
-				const image = getImage(feature.imageLocal)
+				let image
+				if(feature.imageLocal)
+				image = getImage(feature.imageLocal)
 				return (
 					<div key={index} className="">
 							{ image && <p><GatsbyImage image={image} alt={feature.title} /></p>}

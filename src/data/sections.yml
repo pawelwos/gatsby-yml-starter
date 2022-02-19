@@ -10,7 +10,7 @@
   content: |
     <h2>Introduction</h2>
     <p>Hello fellow Gatsby users!</p>
-    <p>I would like to show you my approach and setup of gatsby site. I'm not a javascript expert and that's the reason this setup was created as I had to do a couple of workarounds (aspacialy in inline content with images and links). I'm using YAML for the site structure and sections definitions. Why not Markdown or MDX? I know you can write HTML in markdown files but if you prefer HTML over markdown (like I do) why do we need markdown anyway? :) Secondly, I'm using this approach with a wordpress site which is generating these YAML files. This way I can quickly draft / outline a fully working site quickly just by writing YAML files and then just connect it to wordpress with custom API endpoints with ACF repeater fields. </p>
+    <p>I would like to show you my approach and setup of gatsby site. I'm not a javascript expert and that's the reason this setup was created as I had to do a couple of workarounds (aspacialy in inline content with images and links). I'm using YAML for the site structure and sections definitions. Why not Markdown or MDX? I know you can write HTML in markdown files but if you prefer HTML over markdown (like I do) why do we need markdown anyway? :) Secondly, I'm using this approach with a wordpress site which is generating these YAML files. This way I can quickly draft / outline a fully working site quickly just by writing YAML files and then just connect it to wordpress with custom API endpoints with ACF repeater fields. This is not a perfect setup, I know. I bet there are plenty of places where it can be improved. I just want to show you a concept / idea you might find interesting. Any feedback / reviews are highly appreciated.</p>
 -
   pageId: 1
   type: blog-list
@@ -109,11 +109,11 @@
   bgcolor: "#efefef"
   image: ""
   imageAlt: ""
-  bgimg: ""
+  bgimg: "https://unsplash.com/photos/Pmh0UoG1vlE/download?ixid=MnwxMjA3fDB8MXxzZWFyY2h8MTd8fGNvbXB1dGVyfGVufDB8fHx8MTY0NTI0MDY2NA&force=true&w=1920"
   bgimgAlt: ""
-  textColor: 'black'
+  textColor: 'white'
   content: |
-    <div class="text-center">
+    <div class="text-center text-white">
     <h2>A simple section with back to blog button</h2>
     <p><Link to="/" class="underline">Back to the Blog</Link></p>
     </div>

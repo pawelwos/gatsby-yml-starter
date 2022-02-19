@@ -16,7 +16,9 @@ export default function Simple ({section}) {
     return inlineImages['image'+index] = getImage(image.imageLocal)
   })
 
-  const bgimg = section.bgimgLocal
+  let bgimg
+  if(section.bgimgLocal)
+  bgimg = section.bgimgLocal
 
   return (
     <section className={`simple p-4 relative mb-4 ${ bgimg ? 'pt-96' : ''}`} style={{backgroundColor: section.bgcolor}}>

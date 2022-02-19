@@ -27,8 +27,9 @@ const BlogList = ({section}) => {
     <div dangerouslySetInnerHTML={{__html: section.intro}}></div>
       <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
         { data.Posts.nodes.map(post => {
-
-          const thumbnail = getImage(post.thumbnailLocal)
+          let thumbnail
+          if(post.thumbnailLocal)
+          thumbnail = getImage(post.thumbnailLocal)
           return (    
             <div key={post.databaseId}>
               { thumbnail && <p><Link to={post.url}><GatsbyImage width={400} image={thumbnail} alt={post.title} /></Link></p> }

@@ -4,7 +4,9 @@ import { Link } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
 const TwoCols = ({section}) => {
-  const image = getImage(section.imageLocal)
+  let image
+  if(section.imageLocal)
+  image = getImage(section.imageLocal)
   return (
     <section className='grid grid-cols-1 md:grid-cols-2 justify-center items-center auto-rows-auto gap-4 mb-4' style={{'backgroundColor': section.bgcolor}}>
       <div className={`p-8 ${section.imagePosition === 'right' ? 'order-2' : 'order-1'}`}>
