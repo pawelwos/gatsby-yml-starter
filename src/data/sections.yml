@@ -1,195 +1,215 @@
--
-  pageId: 1
-  type: 'simple'
-  bgcolor: "#fff"
-  image: ""
-  imageAlt: ""
-  bgimg: ""
-  bgimgAlt: ""
-  textColor: 'black'
-  content: |
-    <h2>Introduction</h2>
-    <p>Hello Gatsby users! I would like to show you my approach and setup of the gatsby site using just two yaml files for pages and dynamic sections / blocks assigned to these pages. <strong>I'm not a javascript expert</strong> and I would love to get feedback from you guys, if this approach is worth investing time and if this is efficient. It is not perfect, it needs special treatment ;) and I'm sure there are plenty of bugs and bad practice. I will put more technical instructions on how to use it on Github (link down below)</p><p>I know you can use markdown and MDX which is great but I needed something that can be easily connected to a CMS (most of my clients are using Wordpress). Using wordpress source plugin is great but I needed a way to quickly outline a website  showing all the sections needed and page structure and then just switch to dynamic YAML files driven by Wordpress custom API endpoint. It really reduced my development time and you might find this interesting....</p><p>I really enjoy and love working with GatsbyJs so I want to give something back to the community, I hope it is worth sharing at all :D</p><p>All images are taken from unsplash.com</p><p>Source code is available here: <br />Github: <a href="https://github.com/pawelwos/gatsby-yml-starter">https://github.com/pawelwos/gatsby-yml-starter</a><br />Contact: <a href="mailto:pawelwos@gmail.com">pawelwos@gmail.com</a></p>
--
-  pageId: 1
-  type: blog-list
-  intro: |
-    <h1>Blog</h1>
--
-  pageId: 2
-  type: header
-  title: "Second Page"
-  bgimg: https://unsplash.com/photos/XJXWbfSo2f0/download?ixid=MnwxMjA3fDB8MXxzZWFyY2h8MzV8fGNvbXB1dGVyfGVufDB8fHx8MTY0NTI5MzQyMQ&force=true&w=1920
--
-  pageId: 2
-  type: 'simple'
-  bgcolor: ""
-  image: ""
-  imageAlt: ""
-  bgimg: ""
-  bgimgAlt: ""
-  textColor: 'black'
-  content: |
-    <h1>Example page content</h1>
-    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam accusamus dolore saepe, dolores atque doloremque alias exercitationem reprehenderit quis tenetur laborum adipisci voluptatibus voluptatem nostrum? Ipsum eveniet eum architecto neque alias illum commodi velit minus itaque sint quae necessitatibus facilis, dolore facere cupiditate, voluptates quibusdam dolor perspiciatis, in dignissimos numquam?</p>
-    <div class="mb-4"><GatsbyImage image={image0} alt="Image 1" /></div>
-    <p><Link to="/">&lt; Back to Homepage</Link></p>
-  inlineImages: 
-    -
-      image: image01.jpg
--
-  pageId: 3
-  type: header
-  title: "Another Page"
-  bgimg: https://unsplash.com/photos/n8Qb1ZAkK88/download?ixid=MnwxMjA3fDB8MXxzZWFyY2h8MzN8fGNvbXB1dGVyfGVufDB8fHx8MTY0NTI5MzQyMQ&force=true&w=1920
--
-  pageId: 3
-  type: 'simple'
-  bgcolor: ""
-  image: ""
-  imageAlt: ""
-  bgimg: ""
-  bgimgAlt: ""
-  textColor: 'black'
-  content: |
-    <h1>Example page content</h1>
-    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Numquam accusamus dolore saepe, dolores atque doloremque alias exercitationem reprehenderit quis tenetur laborum adipisci voluptatibus voluptatem nostrum? Ipsum eveniet eum architecto neque alias illum commodi velit minus itaque sint quae necessitatibus facilis, dolore facere cupiditate, voluptates quibusdam dolor perspiciatis, in dignissimos numquam?</p>
-    <div class="mb-4"><GatsbyImage image={image0} alt="Image 1" /></div>
-    <p><Link to="/">&lt; Back to Homepage</Link></p>
-  inlineImages: 
-    -
-      image: https://unsplash.com/photos/Bd7gNnWJBkU/download?ixid=MnwxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNjQ1MTMyMDEz&force=true&w=1920
--
-  pageId: 4
-  type: 'simple'
-  bgcolor: "#efefef"
-  image: ""
-  imageAlt: ""
-  bgimg: ""
-  bgimgAlt: ""
-  textColor: 'black'
-  content: |
-    <h1>Simple Section Block</h1>
-    <p>This is simple content with inline text and images.</p>
-    <h2>Inline Images</h2>
-    <p>
-      This is simple workaround for inline images in content field.
-      Instead of using something like <a href="https://www.gatsbyjs.com/plugins/gatsby-plugin-remote-images/">gatsby-plugin-remote-images</a>
-      or <a href="https://www.gatsbyjs.com/plugins/gatsby-remark-images/">gatsby-remark-images</a> or any similar plugin
-      we create a second YML node <strong>inlineImages</strong> and in content we just add a standard GatsbyImage Plugin tag
-      like 
-    </p>
-      <Highlight lang="jsx" codeString="&lt;GatsbyImage image=&#123;image0&#125; alt='Image 1' \/&gt;" />
-    <p>
-      amd for another image
-    </p>  
-      <Highlight lang="jsx" codeString="&lt;GatsbyImage image=&#123;image1&#125; alt='Image 2' \/&gt;" />
-    <p>
-      and so on... so you can use a loop... I use it with wordpress and custom API and I just replace each &lt;img /&gt; tag with &lt;GatsbyImage /&gt; adding "image".$i in the image attribute. So yes, instead of gatsby doing the replacement my Wordpress backend does it for me.  
-    </p>
-    <div class="relative mb-8">
-      <div class="mb-4"><GatsbyImage image={image0} alt="Image 1" /></div>
-      <div class="mb-4"><GatsbyImage image={image1} alt="Image 2" /></div>
-    </div>
-    <h2>Gatsby internal links</h2>
-    <p>So as expected &lt;Link&gt; component works out of the box and in Wordpress API it replace all &lt;a href=""&gt; to gatsby link, so again instead of gatsby doing the work, it's done in the Wordpress CMS</p>
-    <Link to="/">Back to the Blog</Link>
-  inlineImages: 
-    -
-      image: image01.jpg
-    -
-      image: https://unsplash.com/photos/Bd7gNnWJBkU/download?ixid=MnwxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNjQ1MTMyMDEz&force=true&w=1920
 
 -
-  pageId: 5
-  type: header
-  title: "Dynamic sections / blocks"
-  bgimg: https://unsplash.com/photos/p0j-mE6mGo4/download?ixid=MnwxMjA3fDB8MXxzZWFyY2h8MzF8fGNvbXB1dGVyfGVufDB8fHx8MTY0NTI5MzQyMQ&force=true&w=1920
+  sectionId: '1-1-header'
+  pageId: 1
+  type: 'header'
+  title: 'First Post'
+  intro: ""
+  content: ""
+  bgcolor: ''
+  bgimg: 'http://localhost:8000/wp-content/uploads/2022/02/ales-krivec-4miBe6zg5r0-unsplash.jpg'
+  bgimgAlt: ''
+  image: ''
+  imageAlt: ''
+  imagePosition: ''
 
+  textColor: ''
+
+  features: 
 -
-  pageId: 5
-  type: twocols
-  bgcolor: '#fefefe'
-  content: |
-    <h2>This is two columns section block</h2>
-    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo harum quidem dicta officia ea neque ex dolorum tempora expedita facilis veritatis eum ipsum voluptas, laborum totam earum deserunt? Molestiae esse nemo recusandae aut dolores, quibusdam neque officiis hic eaque cumque consequatur minus officia in animi est labore enim natus qui!</p>
-    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo harum quidem dicta officia ea neque ex dolorum tempora expedita facilis veritatis eum ipsum voluptas, laborum totam earum deserunt? Molestiae esse nemo recusandae aut dolores, quibusdam neque officiis hic eaque cumque consequatur minus officia in animi est labore enim natus qui!</p>
-  image: https://unsplash.com/photos/WiONHd_zYI4/download?ixid=MnwxMjA3fDB8MXxzZWFyY2h8Nnx8Y29tcHV0ZXJ8ZW58MHx8fHwxNjQ1MDc2NjE2&force=true&w=1920
-  imageAlt: 'Two Columns'
-  imagePosition: 'right'
+  sectionId: '1-2-simple'
+  pageId: 1
+  type: 'simple'
+  title: ''
+  intro: ""
+  content: "<p>A simple post with inline images<\/p><p><Image image={image0} className={\"w-full relative\"} \/><\/p><p>And another one<\/p><p><Image image={image1} className={\"w-full relative\"} \/><\/p><p>and one more<\/p><p><Image image={image2} className={\"w-full relative\"} \/><\/p>"
+  inlineImages:
+    -
+      image: 'http://localhost:8000/wp-content/uploads/2022/02/pine-watt-2Hzmz15wGik-unsplash-1024x683.jpg'
+    -
+      image: 'http://localhost:8000/wp-content/uploads/2022/02/pietro-de-grandi-T7K4aEPoGGk-unsplash-1024x683.jpg'
+    -
+      image: 'http://localhost:8000/wp-content/uploads/2022/02/mark-harpur-K2s_YE031CA-unsplash-1-1024x683.jpg'
+  bgcolor: ''
+  bgimg: ''
+  bgimgAlt: ''
+  image: ''
+  imageAlt: ''
+  imagePosition: ''
+
+  textColor: ''
+
+  features: 
 -
-  pageId: 5
-  type: 'features'
-  features:
-    -
-      title: Feature 1
-      image: https://unsplash.com/photos/WkfDrhxDMC8/download?ixid=MnwxMjA3fDB8MXxzZWFyY2h8MTR8fGNvbXB1dGVyfGVufDB8fHx8MTY0NTI0MDY2NA&force=true&w=1920
-      intro: Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo harum quidem dicta officia ea neque ex dolorum tempora expedita facilis veritatis eum ipsum voluptas.
-      link: 'https://www.pawelwos.com'
-    -
-      title: Feature 2
-      image: https://unsplash.com/photos/bJjsKbToY34/download?ixid=MnwxMjA3fDB8MXxzZWFyY2h8MTh8fGNvbXB1dGVyfGVufDB8fHx8MTY0NTI0MDY2NA&force=true&w=1920
-      intro: Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo harum quidem dicta officia ea neque ex dolorum tempora expedita facilis veritatis eum ipsum voluptas.
-      link: 'https://www.pawelwos.com'
-    -
-      title: Feature 3
-      image: https://unsplash.com/photos/Pmh0UoG1vlE/download?ixid=MnwxMjA3fDB8MXxzZWFyY2h8MTd8fGNvbXB1dGVyfGVufDB8fHx8MTY0NTI0MDY2NA&force=true&w=1920
-      intro: Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo harum quidem dicta officia ea neque ex dolorum tempora expedita facilis veritatis eum ipsum voluptas.
-      link: 'https://www.pawelwos.com'
-    -
-      title: Feature 4
-      image: https://unsplash.com/photos/gySMaocSdqs/download?ixid=MnwxMjA3fDB8MXxzZWFyY2h8MjB8fGNvbXB1dGVyfGVufDB8fHx8MTY0NTI0MDY2NA&force=true&w=1920
-      intro: Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo harum quidem dicta officia ea neque ex dolorum tempora expedita facilis veritatis eum ipsum voluptas.
-      link: 'https://www.pawelwos.com'
--
-  pageId: 5
-  type: twocols
-  bgcolor: '#6b21a8'
-  textColor: white
-  content: |
-    <h2>This is two columns section block</h2>
-    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo harum quidem dicta officia ea neque ex dolorum tempora expedita facilis veritatis eum ipsum voluptas, laborum totam earum deserunt? Molestiae esse nemo recusandae aut dolores, quibusdam neque officiis hic eaque cumque consequatur minus officia in animi est labore enim natus qui!</p>
-    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Explicabo harum quidem dicta officia ea neque ex dolorum tempora expedita facilis veritatis eum ipsum voluptas, laborum totam earum deserunt? Molestiae esse nemo recusandae aut dolores, quibusdam neque officiis hic eaque cumque consequatur minus officia in animi est labore enim natus qui!</p>
-  image: https://unsplash.com/photos/bsy0-z5RTfk/download?ixid=MnwxMjA3fDF8MXxzZWFyY2h8OHx8Y29tcHV0ZXJ8ZW58MHx8fHwxNjQ1MDc2NjE2&force=true&w=1920
-  imageAlt: 'Two Columns'
+  sectionId: '1-3-twocols'
+  pageId: 1
+  type: 'twocols'
+  title: ''
+  intro: ""
+  content: "<p>Two columns content<\/p>"
+  bgcolor: ''
+  bgimg: ''
+  bgimgAlt: ''
+  image: 'http://localhost:8000/wp-content/uploads/2022/02/pine-watt-2Hzmz15wGik-unsplash.jpg'
+  imageAlt: ''
   imagePosition: 'left'
+
+  textColor: 'black'
+
+  features: 
 -
-  pageId: 5
-  type: blog-list
-  intro: |
-    <h2>A blog list within a post</h2>
--
-  pageId: 5
+  sectionId: '1-4-simple'
+  pageId: 1
   type: 'simple'
-  bgcolor: ""
-  image: ""
-  imageAlt: ""
-  bgimg: ""
-  bgimgAlt: ""
-  content: |
-    <div class="text-center">
-    <h2>As many sections as you like...</h2>
-    <p>At the moment we have 5 sections defined in <strong>/src/sections/Sections.js</strong></p>
-    <ul class="list-disc list-inside">
-    <li>Header</li>
-    <li>Simple</li>
-    <li>Two Columns</li>
-    <li>Blog List</li>
-    <li>Features</li>
-    </ul>
-    <p>But it is really easy to define more with its own functionality, react hooks, forms and so on...</p>
-    </div>
+  title: ''
+  intro: ""
+  content: "<p><Link className={\"button\"} to={\"https:\/\/localhost:8000\/\"}>&lt; Back to homepage<\/Link><\/p>"
+  bgcolor: ''
+  bgimg: ''
+  bgimgAlt: ''
+  image: ''
+  imageAlt: ''
+  imagePosition: ''
+
+  textColor: ''
+
+  features: 
 -
-  pageId: 5
+  sectionId: '2-1-header'
+  pageId: 2
+  type: 'header'
+  title: 'GatsbyJs Wordpress YAML Example '
+  intro: ""
+  content: ""
+  bgcolor: ''
+  bgimg: 'http://localhost:8000/wp-content/uploads/2022/02/pietro-de-grandi-T7K4aEPoGGk-unsplash.jpg'
+  bgimgAlt: ''
+  image: ''
+  imageAlt: ''
+  imagePosition: ''
+
+  textColor: ''
+
+  features: 
+-
+  sectionId: '2-2-simple'
+  pageId: 2
   type: 'simple'
-  bgcolor: "#efefef"
-  image: ""
-  imageAlt: ""
-  bgimg: "https://unsplash.com/photos/Pmh0UoG1vlE/download?ixid=MnwxMjA3fDB8MXxzZWFyY2h8MTd8fGNvbXB1dGVyfGVufDB8fHx8MTY0NTI0MDY2NA&force=true&w=1920"
-  bgimgAlt: ""
-  textColor: 'white'
-  content: |
-    <div class="text-center text-white">
-    <h2>A simple section with back to blog button</h2>
-    <p><Link to="/" class="underline">Back to the Blog</Link></p>
-    </div>
+  title: ''
+  intro: ""
+  content: "<p>This is gatsby site managed by WordPress CMS.<\/p>"
+  bgcolor: ''
+  bgimg: ''
+  bgimgAlt: ''
+  image: ''
+  imageAlt: ''
+  imagePosition: ''
+
+  textColor: ''
+
+  features: 
+-
+  sectionId: '2-3-blog_list'
+  pageId: 2
+  type: 'blog_list'
+  title: ''
+  intro: "<h2>Blog<\/h2>"
+  content: ""
+  bgcolor: ''
+  bgimg: ''
+  bgimgAlt: ''
+  image: ''
+  imageAlt: ''
+  imagePosition: ''
+
+  textColor: ''
+
+  features: 
+-
+  sectionId: '40-1-header'
+  pageId: 40
+  type: 'header'
+  title: 'Another Page'
+  intro: ""
+  content: ""
+  bgcolor: ''
+  bgimg: 'http://localhost:8000/wp-content/uploads/2022/02/ken-cheung-KonWFWUaAuk-unsplash.jpg'
+  bgimgAlt: ''
+  image: ''
+  imageAlt: ''
+  imagePosition: ''
+
+  textColor: ''
+
+  features: 
+-
+  sectionId: '40-2-simple'
+  pageId: 40
+  type: 'simple'
+  title: ''
+  intro: ""
+  content: "<p>Some content here&#8230;<\/p>"
+  bgcolor: ''
+  bgimg: ''
+  bgimgAlt: ''
+  image: ''
+  imageAlt: ''
+  imagePosition: ''
+
+  textColor: ''
+
+  features: 
+-
+  sectionId: '42-1-header'
+  pageId: 42
+  type: 'header'
+  title: 'Another Page'
+  intro: ""
+  content: ""
+  bgcolor: ''
+  bgimg: 'http://localhost:8000/wp-content/uploads/2022/02/pine-watt-2Hzmz15wGik-unsplash.jpg'
+  bgimgAlt: ''
+  image: ''
+  imageAlt: ''
+  imagePosition: ''
+
+  textColor: ''
+
+  features: 
+-
+  sectionId: '42-2-features'
+  pageId: 42
+  type: 'features'
+  title: ''
+  intro: ""
+  content: ""
+  bgcolor: ''
+  bgimg: ''
+  bgimgAlt: ''
+  image: ''
+  imageAlt: ''
+  imagePosition: ''
+
+  textColor: ''
+
+  features: 
+    -
+      title: 'Feature 1'
+      intro: 'Some intro here'
+      image: 'http://localhost:8000/wp-content/uploads/2022/02/pietro-de-grandi-T7K4aEPoGGk-unsplash.jpg'
+      link: ''
+    -
+      title: 'Feature 2'
+      intro: 'Some intro here'
+      image: 'http://localhost:8000/wp-content/uploads/2022/02/ales-krivec-4miBe6zg5r0-unsplash.jpg'
+      link: ''
+    -
+      title: 'Feature 3'
+      intro: 'Some intro here'
+      image: 'http://localhost:8000/wp-content/uploads/2022/02/ken-cheung-KonWFWUaAuk-unsplash.jpg'
+      link: ''
+    -
+      title: 'Feature 4'
+      intro: 'Some intro here'
+      image: 'http://localhost:8000/wp-content/uploads/2022/02/mark-harpur-K2s_YE031CA-unsplash-1.jpg'
+      link: ''

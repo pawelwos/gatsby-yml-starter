@@ -1,5 +1,5 @@
 import React from 'react'
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import Image from '../components/Image'
 
 
 const Features = ({section}) => {
@@ -9,10 +9,12 @@ const Features = ({section}) => {
 			{ section.features.map((feature, index) => {
 				let image
 				if(feature.imageLocal)
-				image = getImage(feature.imageLocal)
+				image = feature.imageLocal
+        else
+				image = feature.image
 				return (
 					<div key={index} className="">
-							{ image && <div className='mb-4'><GatsbyImage image={image} alt={feature.title} /></div>}
+							{ image && <div className='mb-4 relative pt-[70%]'><Image image={image} alt={feature.title} /></div>}
 							<h2>{feature.title}</h2>
 							<p>{feature.intro}</p>
 							{feature.link && <p><a href={feature.link}>External Link</a></p>}

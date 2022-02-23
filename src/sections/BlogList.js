@@ -1,6 +1,6 @@
 import React from 'react'
 import { useStaticQuery, graphql, Link } from "gatsby"
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import Image from '../components/Image'
 
 const BlogList = ({section}) => {
   let data = useStaticQuery(graphql`
@@ -14,7 +14,7 @@ const BlogList = ({section}) => {
         url
         thumbnailLocal {
           childImageSharp {
-            gatsbyImageData(layout: FIXED, width: 400, placeholder: BLURRED)
+            gatsbyImageData(layout: FULL_WIDTH, placeholder: BLURRED)
           }
         }
       }
@@ -29,10 +29,12 @@ const BlogList = ({section}) => {
         { data.Posts.nodes.map(post => {
           let thumbnail
           if(post.thumbnailLocal)
-          thumbnail = getImage(post.thumbnailLocal)
+          thumbnail = post.thumbnailLocal
+          else
+          thumbnail = post.thumbnail
           return (    
             <div key={post.databaseId}>
-              { thumbnail && <div className="mb-4"><Link to={post.url}><GatsbyImage width={400} image={thumbnail} alt={post.title} /></Link></div> }
+              { thumbnail && <div className="mb-4 relative pt-[50%]"><Link to={post.url}><Image width={400} image={thumbnail} alt={post.title} /></Link></div> }
               <h2 className='mb-2'><Link to={post.url}>{post.title}</Link></h2>
               <h3 className='text-gray-400 text-xs'>{post.date}</h3>
               <p dangerouslySetInnerHTML={{__html: post.excerpt}}></p>

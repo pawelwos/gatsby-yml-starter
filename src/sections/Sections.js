@@ -13,7 +13,7 @@ const Sections = {
 	'header' : Header,
 	'simple' : Simple,
 	'twocols': TwoCols,
-	'blog-list': BlogList,
+	'blog_list': BlogList,
 	'features': Features
 }
 

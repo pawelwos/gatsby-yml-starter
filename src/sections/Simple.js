@@ -1,7 +1,7 @@
 import React from "react"
 import JsxParser from 'react-jsx-parser'
 import { Link } from "gatsby"
-import { GatsbyImage, getImage } from "gatsby-plugin-image"
+import Image from '../components/Image'
 import  Highlight from "../components/highlight"
 
 
@@ -13,18 +13,23 @@ export default function Simple ({section}) {
   let inlineImages = {}
   if(section.inlineImages)
   section.inlineImages.map((image, index) => {
-    return inlineImages['image'+index] = getImage(image.imageLocal)
+    if(image.imageLocal)
+    return inlineImages['image'+index] = image.imageLocal
+    else
+    return inlineImages['image'+index] = image.image
   })
 
   let bgimg
   if(section.bgimgLocal)
   bgimg = section.bgimgLocal
+  else
+  bgimg = section.bgimg
 
   return (
     <section className={`simple p-4 relative mb-4 ${ bgimg ? 'pt-96' : ''}`} style={{backgroundColor: section.bgcolor}}>
       { bgimg && (
         <>
-        <GatsbyImage style={{"position": 'absolute', 'zIndex': 1}} className="inset-0" image={getImage(bgimg)} alt={section.bgimgAlt} />
+        <Image style={{"position": 'absolute', 'zIndex': 1}} className="inset-0" image={bgimg} alt={section.bgimgAlt} />
         <div className={`absolute inset-0 z-10 bg-black bg-opacity-75`}></div>
         </>
       )}
@@ -32,7 +37,7 @@ export default function Simple ({section}) {
         <div className={`inner py8 mx-auto ${section.textColor}`}>
             <JsxParser
               bindings={inlineImages}
-              components={{Link, GatsbyImage, Highlight}}
+              components={{Link, Image, Highlight}}
               jsx={section.content}
             />
         </div>

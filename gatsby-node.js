@@ -1,5 +1,39 @@
+const fetch = require(`node-fetch`)
+const fs = require('fs')
 const path = require("path")
 const { createRemoteFileNode } = require(`gatsby-source-filesystem`)
+
+// what endpoints we want to use to grab YAML files
+const endpoints = ['pages', 'sections', 'navigation'];
+let urls = []
+
+const getData = async () => {
+  // Data
+  endpoints.forEach(endpoint => {
+    urls.push(`${process.env.GATSBY_WP_URL}/api/${endpoint}/`)
+  })
+  console.log(urls)
+  try {
+    let resps = await Promise.all(endpoints.map(async endpoint => {
+      const resp = await fetch(`${process.env.GATSBY_WP_URL}/api/${endpoint}/`).then(resp => {
+        resp.text().then(body => {
+          fs.writeFile(path.resolve(`src/data/${endpoint}.yml`),body,e => {
+            if (e) throw e;
+            console.log(`${endpoint} YAML was created successfully`);
+          })
+        })
+      })
+    }))
+  } catch(err) {
+    console.log(err);
+  }
+}
+
+// Download YAML files from Wordpress site
+exports.onPreBootstrap = async ({ store, cache }, pluginOptions) => {
+  const yamls = await getData()
+}
+
 
 // we create all page types here
 exports.createPages = async ({ actions, graphql, reporter }) => {

@@ -1,31 +1,36 @@
 -
+  slug: 'hello-world'
+  type: 'post'
   databaseId: 1
-  type: page
-  title: Home
-  url: /
+  title: 'Hello world!'
+  url: '/2022/02/23/hello-world/'
+  excerpt: 'We need some intro for the post...'
+  date: 'February 23, 2022'
+  thumbnail: 'http://localhost:8000/wp-content/uploads/2022/02/ken-cheung-KonWFWUaAuk-unsplash.jpg'
 -
+  slug: 'home'
+  type: 'page'
   databaseId: 2
-  type: page
-  title: Second page
-  url: /second-page
+  title: 'Homepage'
+  url: '/'
+  excerpt: ''
+  date: 'February 23, 2022'
+  thumbnail: ''
 -
-  databaseId: 3
-  type: page
-  title: Another page
-  url: /another-page
+  slug: 'another-page'
+  type: 'page'
+  databaseId: 40
+  title: 'Another Page'
+  url: '/another-page/'
+  excerpt: ''
+  date: 'February 23, 2022'
+  thumbnail: ''
 -
-  databaseId: 4
-  type: post
-  title: Inline content showcase
-  excerpt: This is how you create inline content with images converted by GatsbyImage Plugin and internal Links loaded from yaml file...
-  date: '2022-02-16'
-  url: /blog/first-post
-  thumbnail: https://unsplash.com/photos/m_HRfLhgABo/download?ixid=MnwxMjA3fDB8MXxzZWFyY2h8MTF8fGNvbXB1dGVyfGVufDB8fHx8MTY0NTI0MDY2NA&force=true&w=1920
--
-  databaseId: 5
-  type: post
-  title: Dynamic sections showcase
-  excerpt: Here you can see a different variety of sections mixed together. You can define your own sections and reuse them in any page or post...
-  date: '2022-02-17'
-  url: /blog/second-post
-  thumbnail: https://unsplash.com/photos/hGV2TfOh0ns/download?ixid=MnwxMjA3fDB8MXxzZWFyY2h8OXx8Y29tcHV0ZXJ8ZW58MHx8fHwxNjQ1MjQwNjY0&force=true&w=1920
+  slug: 'and-another-page'
+  type: 'page'
+  databaseId: 42
+  title: 'And Another Page'
+  url: '/and-another-page/'
+  excerpt: ''
+  date: 'February 23, 2022'
+  thumbnail: ''

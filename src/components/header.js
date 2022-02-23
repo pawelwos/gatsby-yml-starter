@@ -1,8 +1,20 @@
 import * as React from "react"
 import PropTypes from "prop-types"
-import { Link } from "gatsby"
+import { useStaticQuery, graphql, Link } from "gatsby"
 
-const Header = ({ siteTitle }) => (
+
+const Header = ({ siteTitle }) => {
+  let data = useStaticQuery(graphql`
+    query Navigation {
+      allNavigationYaml {
+        nodes {
+          label
+          url
+        }
+      }
+    }
+    `)
+  return (
   <header
     style={{
       background: `rebeccapurple`,
@@ -28,19 +40,20 @@ const Header = ({ siteTitle }) => (
         </Link>
       </h1>
       <div className="md:flex justify-center white space-x-4 text-xl">
-        <Link className="no-underline p-4" to={'/second-page'}>Second Page</Link>
-        <Link className="no-underline p-4" to={'/another-page'}>Another page</Link>
+        {data.allNavigationYaml.nodes.map((nav, index) => {
+          return <Link key={index} className="no-underline p-4" to={nav.url}>{nav.label}</Link>
+        })}
       </div>
     </div>
   </header>
-)
+)}
 
 Header.propTypes = {
-  siteTitle: PropTypes.string,
+  siteTitle: PropTypes.string
 }
 
 Header.defaultProps = {
-  siteTitle: ``,
+  siteTitle: ``
 }
 
 export default Header
