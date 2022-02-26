@@ -1,7 +1,7 @@
 import React from 'react';
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 
-const Image = ({image, alt, className = 'absolute inset-0 z-0', style, width }) => {
+const Image = ({image, alt, className = '!absolute !inset-0 z-0', style, width }) => {
   console.log(image)
 	const imgStyles = {
 		'width': '100%',

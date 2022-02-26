@@ -1,25 +1,52 @@
 -
-  slug: 'hello-world'
+  slug: 'hello-world-2'
   type: 'post'
-  databaseId: 1
+  databaseId: 42
   title: 'Hello world!'
-  url: '/2022/02/23/hello-world/'
+  url: '/2022/02/23/hello-world-2/'
   excerpt: 'We need some intro for the post...'
   date: 'February 23, 2022'
-  thumbnail: 'http://localhost:8000/wp-content/uploads/2022/02/ken-cheung-KonWFWUaAuk-unsplash.jpg'
+  thumbnail: 'https://cms.pawelwos.com/wp-content/uploads/2022/02/mark-harpur-K2s_YE031CA-unsplash-1-1.jpg'
 -
   slug: 'home'
   type: 'page'
-  databaseId: 2
+  databaseId: 43
   title: 'Homepage'
   url: '/'
   excerpt: ''
   date: 'February 23, 2022'
   thumbnail: ''
 -
+  slug: 'another-post'
+  type: 'post'
+  databaseId: 50
+  title: 'Another Post'
+  url: '/2022/02/23/another-post/'
+  excerpt: 'Another intro here...'
+  date: 'February 23, 2022'
+  thumbnail: 'https://cms.pawelwos.com/wp-content/uploads/2022/02/ales-krivec-4miBe6zg5r0-unsplash-1.jpg'
+-
+  slug: 'superbly-nice-superpage'
+  type: 'page'
+  databaseId: 70
+  title: 'Superbly nice superpage'
+  url: '/superbly-nice-superpage/'
+  excerpt: ''
+  date: 'February 24, 2022'
+  thumbnail: ''
+-
+  slug: 'best-post-in-the-world-right-now'
+  type: 'post'
+  databaseId: 72
+  title: 'Best post in the world right now'
+  url: '/2022/02/24/best-post-in-the-world-right-now/'
+  excerpt: ''
+  date: 'February 24, 2022'
+  thumbnail: ''
+-
   slug: 'another-page'
   type: 'page'
-  databaseId: 40
+  databaseId: 45
   title: 'Another Page'
   url: '/another-page/'
   excerpt: ''
@@ -28,7 +55,7 @@
 -
   slug: 'and-another-page'
   type: 'page'
-  databaseId: 42
+  databaseId: 46
   title: 'And Another Page'
   url: '/and-another-page/'
   excerpt: ''

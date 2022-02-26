@@ -65,7 +65,7 @@ export default function Preview() {
 
 							if( typeof Sections[section.type] === 'object') {
 								return (
-									React.createElement(Sections[section.type], { key: index, section}) 
+									React.createElement(Sections[section.type], { key: index, section, preview: true}) 
 								)
 							} else {
 								return <p key={index}>Missing {section.type} Component </p>

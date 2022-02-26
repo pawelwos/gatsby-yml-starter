@@ -1,13 +1,13 @@
 
 -
-  sectionId: '1-1-header'
-  pageId: 1
+  sectionId: '42-1-header'
+  pageId: 42
   type: 'header'
   title: 'First Post'
   intro: ""
   content: ""
   bgcolor: ''
-  bgimg: 'http://localhost:8000/wp-content/uploads/2022/02/ales-krivec-4miBe6zg5r0-unsplash.jpg'
+  bgimg: 'https://cms.pawelwos.com/wp-content/uploads/2022/02/pine-watt-2Hzmz15wGik-unsplash-1.jpg'
   bgimgAlt: ''
   image: ''
   imageAlt: ''
@@ -17,19 +17,19 @@
 
   features: 
 -
-  sectionId: '1-2-simple'
-  pageId: 1
+  sectionId: '42-2-simple'
+  pageId: 42
   type: 'simple'
   title: ''
   intro: ""
   content: "<p>A simple post with inline images<\/p><p><Image image={image0} className={\"w-full relative\"} \/><\/p><p>And another one<\/p><p><Image image={image1} className={\"w-full relative\"} \/><\/p><p>and one more<\/p><p><Image image={image2} className={\"w-full relative\"} \/><\/p>"
   inlineImages:
     -
-      image: 'http://localhost:8000/wp-content/uploads/2022/02/pine-watt-2Hzmz15wGik-unsplash-1024x683.jpg'
+      image: 'http://www.pawelwos.com/cms/wp-content/uploads/2022/02/pietro-de-grandi-T7K4aEPoGGk-unsplash-1-1024x683.jpg'
     -
-      image: 'http://localhost:8000/wp-content/uploads/2022/02/pietro-de-grandi-T7K4aEPoGGk-unsplash-1024x683.jpg'
+      image: 'http://www.pawelwos.com/cms/wp-content/uploads/2022/02/mark-harpur-K2s_YE031CA-unsplash-1-1-1024x683.jpg'
     -
-      image: 'http://localhost:8000/wp-content/uploads/2022/02/mark-harpur-K2s_YE031CA-unsplash-1-1024x683.jpg'
+      image: 'http://www.pawelwos.com/cms/wp-content/uploads/2022/02/ales-krivec-4miBe6zg5r0-unsplash-1-1024x571.jpg'
   bgcolor: ''
   bgimg: ''
   bgimgAlt: ''
@@ -41,8 +41,8 @@
 
   features: 
 -
-  sectionId: '1-3-twocols'
-  pageId: 1
+  sectionId: '42-3-twocols'
+  pageId: 42
   type: 'twocols'
   title: ''
   intro: ""
@@ -50,7 +50,7 @@
   bgcolor: ''
   bgimg: ''
   bgimgAlt: ''
-  image: 'http://localhost:8000/wp-content/uploads/2022/02/pine-watt-2Hzmz15wGik-unsplash.jpg'
+  image: 'https://cms.pawelwos.com/wp-content/uploads/2022/02/ken-cheung-KonWFWUaAuk-unsplash-1.jpg'
   imageAlt: ''
   imagePosition: 'left'
 
@@ -58,8 +58,8 @@
 
   features: 
 -
-  sectionId: '1-4-simple'
-  pageId: 1
+  sectionId: '42-4-simple'
+  pageId: 42
   type: 'simple'
   title: ''
   intro: ""
@@ -75,14 +75,14 @@
 
   features: 
 -
-  sectionId: '2-1-header'
-  pageId: 2
+  sectionId: '43-1-header'
+  pageId: 43
   type: 'header'
   title: 'GatsbyJs Wordpress YAML Example '
   intro: ""
   content: ""
   bgcolor: ''
-  bgimg: 'http://localhost:8000/wp-content/uploads/2022/02/pietro-de-grandi-T7K4aEPoGGk-unsplash.jpg'
+  bgimg: 'https://cms.pawelwos.com/wp-content/uploads/2022/02/pietro-de-grandi-T7K4aEPoGGk-unsplash-1.jpg'
   bgimgAlt: ''
   image: ''
   imageAlt: ''
@@ -92,8 +92,8 @@
 
   features: 
 -
-  sectionId: '2-2-simple'
-  pageId: 2
+  sectionId: '43-2-simple'
+  pageId: 43
   type: 'simple'
   title: ''
   intro: ""
@@ -109,8 +109,8 @@
 
   features: 
 -
-  sectionId: '2-3-blog_list'
-  pageId: 2
+  sectionId: '43-3-blog_list'
+  pageId: 43
   type: 'blog_list'
   title: ''
   intro: "<h2>Blog<\/h2>"
@@ -126,14 +126,14 @@
 
   features: 
 -
-  sectionId: '40-1-header'
-  pageId: 40
+  sectionId: '50-1-header'
+  pageId: 50
   type: 'header'
-  title: 'Another Page'
+  title: 'Post Two'
   intro: ""
   content: ""
   bgcolor: ''
-  bgimg: 'http://localhost:8000/wp-content/uploads/2022/02/ken-cheung-KonWFWUaAuk-unsplash.jpg'
+  bgimg: ''
   bgimgAlt: ''
   image: ''
   imageAlt: ''
@@ -143,8 +143,93 @@
 
   features: 
 -
-  sectionId: '40-2-simple'
-  pageId: 40
+  sectionId: '50-2-twocols'
+  pageId: 50
+  type: 'twocols'
+  title: ''
+  intro: ""
+  content: "<p>Some content here<\/p>"
+  bgcolor: ''
+  bgimg: ''
+  bgimgAlt: ''
+  image: ''
+  imageAlt: ''
+  imagePosition: 'right'
+
+  textColor: 'black'
+
+  features: 
+-
+  sectionId: '50-3-simple'
+  pageId: 50
+  type: 'simple'
+  title: ''
+  intro: ""
+  content: "<p><Link to={\"https:\/\/localhost:8000\/\"}>&lt; Back to homepage<\/Link><\/p>"
+  bgcolor: ''
+  bgimg: ''
+  bgimgAlt: ''
+  image: ''
+  imageAlt: ''
+  imagePosition: ''
+
+  textColor: ''
+
+  features: 
+-
+  sectionId: '70-1-simple'
+  pageId: 70
+  type: 'simple'
+  title: ''
+  intro: ""
+  content: "<p>Hello super simple blogstar<\/p>"
+  bgcolor: ''
+  bgimg: ''
+  bgimgAlt: ''
+  image: ''
+  imageAlt: ''
+  imagePosition: ''
+
+  textColor: ''
+
+  features: 
+-
+  sectionId: '72-1-simple'
+  pageId: 72
+  type: 'simple'
+  title: ''
+  intro: ""
+  content: "<p>Best block in the world right<\/p>"
+  bgcolor: ''
+  bgimg: ''
+  bgimgAlt: ''
+  image: ''
+  imageAlt: ''
+  imagePosition: ''
+
+  textColor: ''
+
+  features: 
+-
+  sectionId: '45-1-header'
+  pageId: 45
+  type: 'header'
+  title: 'Another Page'
+  intro: ""
+  content: ""
+  bgcolor: ''
+  bgimg: 'https://cms.pawelwos.com/wp-content/uploads/2022/02/ken-cheung-KonWFWUaAuk-unsplash-1.jpg'
+  bgimgAlt: ''
+  image: ''
+  imageAlt: ''
+  imagePosition: ''
+
+  textColor: ''
+
+  features: 
+-
+  sectionId: '45-2-simple'
+  pageId: 45
   type: 'simple'
   title: ''
   intro: ""
@@ -160,14 +245,14 @@
 
   features: 
 -
-  sectionId: '42-1-header'
-  pageId: 42
+  sectionId: '46-1-header'
+  pageId: 46
   type: 'header'
   title: 'Another Page'
   intro: ""
   content: ""
   bgcolor: ''
-  bgimg: 'http://localhost:8000/wp-content/uploads/2022/02/pine-watt-2Hzmz15wGik-unsplash.jpg'
+  bgimg: 'https://cms.pawelwos.com/wp-content/uploads/2022/02/mark-harpur-K2s_YE031CA-unsplash-1-1.jpg'
   bgimgAlt: ''
   image: ''
   imageAlt: ''
@@ -177,8 +262,8 @@
 
   features: 
 -
-  sectionId: '42-2-features'
-  pageId: 42
+  sectionId: '46-2-features'
+  pageId: 46
   type: 'features'
   title: ''
   intro: ""
@@ -196,20 +281,20 @@
     -
       title: 'Feature 1'
       intro: 'Some intro here'
-      image: 'http://localhost:8000/wp-content/uploads/2022/02/pietro-de-grandi-T7K4aEPoGGk-unsplash.jpg'
+      image: 'https://cms.pawelwos.com/wp-content/uploads/2022/02/pine-watt-2Hzmz15wGik-unsplash-1.jpg'
       link: ''
     -
       title: 'Feature 2'
       intro: 'Some intro here'
-      image: 'http://localhost:8000/wp-content/uploads/2022/02/ales-krivec-4miBe6zg5r0-unsplash.jpg'
+      image: 'https://cms.pawelwos.com/wp-content/uploads/2022/02/mark-harpur-K2s_YE031CA-unsplash-1-1.jpg'
       link: ''
     -
       title: 'Feature 3'
       intro: 'Some intro here'
-      image: 'http://localhost:8000/wp-content/uploads/2022/02/ken-cheung-KonWFWUaAuk-unsplash.jpg'
+      image: 'https://cms.pawelwos.com/wp-content/uploads/2022/02/ales-krivec-4miBe6zg5r0-unsplash-1.jpg'
       link: ''
     -
       title: 'Feature 4'
       intro: 'Some intro here'
-      image: 'http://localhost:8000/wp-content/uploads/2022/02/mark-harpur-K2s_YE031CA-unsplash-1.jpg'
+      image: 'https://cms.pawelwos.com/wp-content/uploads/2022/02/ken-cheung-KonWFWUaAuk-unsplash-1.jpg'
       link: ''
