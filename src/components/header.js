@@ -1,9 +1,10 @@
-import * as React from "react"
+import React, { useState, useEffect } from "react"
+import yaml from "js-yaml"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql, Link } from "gatsby"
 
 
-const Header = ({ siteTitle }) => {
+const Header = ({ siteTitle, preview }) => {
   let data = useStaticQuery(graphql`
     query Navigation {
       allNavigationYaml {
@@ -14,6 +15,42 @@ const Header = ({ siteTitle }) => {
       }
     }
     `)
+
+	// all items
+	const [allItems, setAllItems] = useState([]);
+
+
+	useEffect(() => {
+		if(preview){
+
+			fetch(`${process.env.GATSBY_WP_URL}/api/navigation`,{
+				method: 'POST',
+				headers: {
+						'Content-Type': 'application/x-www-form-urlencoded',
+				}
+			})
+			.then(res => res.text())
+			.then(
+				(result) => {
+					if (result.includes('error')) {
+					} else {
+						let pages = yaml.load(result);
+						setAllItems(pages)
+					}
+				},
+				// Note: it's important to handle errors here
+				// instead of a catch() block so that we don't swallow
+				// exceptions from actual bugs in components.
+				(error) => {
+					console.log(error)
+				}
+			)
+			
+		} else {
+			setAllItems(data.allNavigationYaml.nodes)
+		}
+	}, [])
+
   return (
   <header
     style={{
@@ -40,7 +77,7 @@ const Header = ({ siteTitle }) => {
         </Link>
       </h1>
       <div className="md:flex justify-center white space-x-4 text-xl">
-        {data.allNavigationYaml.nodes.map((nav, index) => {
+        {allItems.map((nav, index) => {
           return <Link key={index} className="no-underline p-4" to={nav.url}>{nav.label}</Link>
         })}
       </div>

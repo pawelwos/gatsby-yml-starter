@@ -5,8 +5,20 @@
   </a>
 </p>
 <h1 align="center">
-  Gatsby Default Starter driven by YAML files
+  Gatsby Default Starter driven by YAML files (Wordpress Version)
 </h1>
+
+This version / branch is extended with wordpress integration. Most important part is `.env` file entry `GATSBY_WP_URL=https://cms.pawelwos.com` which points to your wordpress CMS. It includes additional **preview page** where **YAML files** are loaded using React Hooks so CMS changes are visible immediately.
+
+Demo site: [https://gatsby.pawelwos.com](https://gatsby.pawelwos.com)
+
+Demo CMS: [https://cms.pawelwos.com/wp-admin](https://cms.pawelwos.com/wp-admin)
+
+```
+Username: tester
+Password: testthis
+```
+
 <p>This is only a concept, idea, WIP setup to quickly outline a site. Just by using two YAML files, please see the example page here: <a href="https://gatsbyymlstartermain.gatsbyjs.io/">https://gatsbyymlstartermain.gatsbyjs.io/</a></p><p>Any feedback, comments are highly welcome!</p>
 <h2>How it works?</h2>
 <p>We need to create two files in <strong>/src/data</strong> folder</p>

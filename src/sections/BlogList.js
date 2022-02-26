@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import yaml from "js-yaml"
 import { useStaticQuery, graphql, Link } from "gatsby"
 import Image from '../components/Image'
 
-const BlogList = ({section}) => {
+const BlogList = ({section, preview}) => {
   let data = useStaticQuery(graphql`
   query allPostsYaml {
     Posts: allPagesYaml(filter: {type: {eq: "post"}}) {
@@ -22,11 +23,49 @@ const BlogList = ({section}) => {
   }
   `)
 
+	// all items
+	const [allItems, setAllItems] = useState([]);
+
+
+	useEffect(() => {
+		if(preview){
+
+			fetch(`${process.env.GATSBY_WP_URL}/api/pages`,{
+				method: 'POST',
+				headers: {
+						'Content-Type': 'application/x-www-form-urlencoded',
+				}
+			})
+			.then(res => res.text())
+			.then(
+				(result) => {
+					if (result.includes('error')) {
+					} else {
+						let pages = yaml.load(result);
+						pages = pages.filter(page => {
+							return page.type === 'post'
+						})
+						setAllItems(pages)
+					}
+				},
+				// Note: it's important to handle errors here
+				// instead of a catch() block so that we don't swallow
+				// exceptions from actual bugs in components.
+				(error) => {
+					console.log(error)
+				}
+			)
+			
+		} else {
+			setAllItems(data.Posts.nodes)
+		}
+	}, [])
+
   return (
     <div className='p-4'>
     <div dangerouslySetInnerHTML={{__html: section.intro}}></div>
       <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
-        { data.Posts.nodes.map(post => {
+        { allItems.map(post => {
           let thumbnail
           if(post.thumbnailLocal)
           thumbnail = post.thumbnailLocal

@@ -55,7 +55,7 @@ export default function Preview() {
 		return <h2>Loading...</h2>;
 	} else {
 		return (
-			<Layout>
+			<Layout preview={true}>
 				<Helmet
 					title="Page Preview"
 				>
